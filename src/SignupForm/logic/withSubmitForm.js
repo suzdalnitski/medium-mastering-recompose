@@ -21,7 +21,7 @@ const handleSubmit = ({
 };
 
 const withSubmitForm = withProps(ownerProps => ({
-  onSubmit: handleSubmit(ownerProps)
+  onSubmit: () => { handleSubmit(ownerProps) }
 }));
 
 export default withSubmitForm;
