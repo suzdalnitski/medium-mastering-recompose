@@ -1,4 +1,4 @@
-import { withProps } from "recompose";
+import { withHandlers } from "recompose";
 import axios from "axios";
 
 const handleSubmit = ({
@@ -20,8 +20,8 @@ const handleSubmit = ({
   axios.post(`https://mywebsite.com/api/signup`, data);
 };
 
-const withSubmitForm = withProps(ownerProps => ({
-  onSubmit: handleSubmit(ownerProps)
-}));
+const withSubmitForm = withHandlers({
+  onSubmit: (props) => () => handleSubmit(props)
+});
 
 export default withSubmitForm;
